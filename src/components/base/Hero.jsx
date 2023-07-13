@@ -1,9 +1,12 @@
+import React from 'react'
+import styles from '@/styles/hero.module.css'
+
 export default function Hero({ title, subTitle, imageOn = false}) {
   return (
-    <div className="">
-      <h1>{title}</h1>
-      <p>{subTitle}</p>
-      { imageOn && <figure>[画像]</figure>}
+    <div className={styles.text}>
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.subTitle}>{subTitle}</p>
+      {imageOn && <figure>[画像]</figure>}
     </div>
   )
 }

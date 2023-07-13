@@ -1,0 +1,18 @@
+.text {
+    padding: 20px;
+    border: solid 2px currentColor;
+    color: darkblue;
+}
+
+.textPink {
+    composes: text;
+    color: lightpink
+}
+
+.title {
+    font-size: 80px;
+}
+
+.subTitle {
+    font-size: 20px;
+}
