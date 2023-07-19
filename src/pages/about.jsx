@@ -8,11 +8,22 @@ import {
   TwoColumnMain,
   TwoColumnSidebar,
 } from '@/components/layouts/TwoColumn'
+import Image from 'next/image'
+import eyecatch from '@/images/about.jpg'
 
 export default function About() {
   return (
     <Container>
       <Hero title="About" subTitle="About development activities" />
+      <figure>
+        <Image
+          src={eyecatch}
+          alt=""
+          sizes="(min-width: 1152px) 1152px, 100vw"
+          priority
+          placeholder="blur"
+        />
+      </figure>
 
       <TwoColumn>
         <TwoColumn.Main>
