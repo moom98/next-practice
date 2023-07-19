@@ -1,4 +1,5 @@
 import React from 'react'
+import Meta from '@/components/meta'
 import Hero from '@/components/elements/Hero'
 import Container from '@/components/layouts/Container'
 import PostBody from '@/components/layouts/PostBody'
@@ -14,6 +15,7 @@ import eyecatch from '@/images/about.jpg'
 export default function About() {
   return (
     <Container>
+      <Meta pageTitle="About" pageDesc="About development activities" />
       <Hero title="About" subTitle="About development activities" />
       <figure>
         <Image
