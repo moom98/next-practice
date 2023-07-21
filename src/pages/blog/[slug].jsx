@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log('posts: ', params)
+  //   console.log('posts: ', params)
   return {
     props: {
       message: 'Dynamic Routes',
