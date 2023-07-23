@@ -25,7 +25,7 @@ export async function getStaticProps() {
   return {
     props: {
       title: post.title,
-      publish: post.publish,
+      publish: post.publishDate,
       content: post.content,
       eyecatch: post.eyecatch,
       categories: post.categories,
