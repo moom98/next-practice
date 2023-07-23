@@ -7,6 +7,8 @@ import PostBody from '@/components/layouts/PostBody'
 import { TwoColumn } from '@/components/layouts/TwoColumn'
 import ConvertBody from '@/components/features/convert-body'
 import PostCategory from '@/components/elements/PostCategory'
+import { ExtractText } from '@/components/features/extract-text'
+import Meta from '@/components/Meta'
 import Image from 'next/legacy/image'
 
 export default function Schedule({
@@ -15,9 +17,17 @@ export default function Schedule({
   content,
   eyecatch,
   categories,
+  description,
 }) {
   return (
     <Container>
+      <Meta
+        pgeTitle={title}
+        pageDesc={description}
+        pageImg={eyecatch.url}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
       <article>
         <PostHeader title={title} subTitle="Blog Article" publish={publish} />
 
@@ -51,6 +61,7 @@ export async function getStaticProps() {
   const slug = 'schedule'
 
   const post = await getPostBySlug(slug)
+  const description = ExtractText(post.content)
 
   return {
     props: {
@@ -59,6 +70,7 @@ export async function getStaticProps() {
       content: post.content,
       eyecatch: post.eyecatch,
       categories: post.categories,
+      description: description,
     },
   }
 }
