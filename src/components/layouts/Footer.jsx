@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '@/components/layouts/Container'
 import Logo from '@/components/elements/Logo'
-import Social from 'components/elements/social'
+import Social from '@/components/elements/Social'
 import styles from '@/styles/layouts/footer.module.css'
 
 export default function Footer() {

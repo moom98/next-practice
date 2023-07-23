@@ -1,6 +1,6 @@
 import React from 'react'
-import Social from 'components/elements/social'
-import styles from '@/styles/layouts/contact.module.css'
+import Social from '@/components/elements/Social'
+import styles from '@/styles/elements/contact.module.css'
 
 export default function Contact() {
   return (
