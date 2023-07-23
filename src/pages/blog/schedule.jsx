@@ -7,7 +7,7 @@ import PostBody from '@/components/layouts/PostBody'
 import { TwoColumn } from '@/components/layouts/TwoColumn'
 import ConvertBody from '@/components/features/convert-body'
 import PostCategory from '@/components/elements/PostCategory'
-import { ExtractText } from '@/components/features/extract-text'
+import { extractText } from '@/components/features/extract-text'
 import Meta from '@/components/Meta'
 import Image from 'next/legacy/image'
 
@@ -61,7 +61,7 @@ export async function getStaticProps() {
   const slug = 'schedule'
 
   const post = await getPostBySlug(slug)
-  const description = ExtractText(post.content)
+  const description = extractText(post.content)
 
   return {
     props: {

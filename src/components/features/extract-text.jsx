@@ -1,7 +1,6 @@
-import React from 'react'
 import { convert } from 'html-to-text'
 
-export default function ExtractText(html, length = 80, more = '...') {
+export function extractText(html, length = 80, more = '...') {
   // HTMLをテキストに変換し、メタ情報として使えるようにする
   const text = convert(html, {
     selectors: [
