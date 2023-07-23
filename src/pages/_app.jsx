@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import Base from '@/components/Base'
+import Layout from '@/components/Layout'
 
 /* fontAwesome */
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -10,8 +10,8 @@ export default function MyApp({ Component, pageProps }) {
   // console.log('MyApp.js: ', pageProps)
 
   return (
-    <Base>
+    <Layout>
       <Component {...pageProps} />
-    </Base>
+    </Layout>
   )
 }
