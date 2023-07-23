@@ -3,6 +3,7 @@ import React from 'react'
 import { getPostBySlug } from 'libs/api'
 import Container from '@/components/layouts/Container'
 import PostHeader from '@/components/elements/PostHeader'
+import Image from 'next/image'
 
 export default function Schedule({
   title,
@@ -15,6 +16,17 @@ export default function Schedule({
     <Container>
       <article>
         <PostHeader title={title} subTitle="Blog Article" publish={publish} />
+
+        <figure>
+          <Image
+            src={eyecatch.url}
+            alt=""
+            width={eyecatch.width}
+            height={eyecatch.height}
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            priority
+          />
+        </figure>
       </article>
     </Container>
   )
