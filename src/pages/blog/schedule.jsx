@@ -6,6 +6,7 @@ import PostHeader from '@/components/elements/PostHeader'
 import PostBody from '@/components/layouts/PostBody'
 import { TwoColumn } from '@/components/layouts/TwoColumn'
 import ConvertBody from '@/components/features/convert-body'
+import PostCategory from '@/components/elements/PostCategory'
 import Image from 'next/legacy/image'
 
 export default function Schedule({
@@ -37,7 +38,9 @@ export default function Schedule({
               <ConvertBody contentHTML={content} />
             </PostBody>
           </TwoColumn.Main>
-          <TwoColumn.Sidebar></TwoColumn.Sidebar>
+          <TwoColumn.Sidebar>
+            <PostCategory categories={categories} />
+          </TwoColumn.Sidebar>
         </TwoColumn>
       </article>
     </Container>
@@ -52,7 +55,7 @@ export async function getStaticProps() {
   return {
     props: {
       title: post.title,
-      publish: post.publishDate,
+      publish: post.publishedAt,
       content: post.content,
       eyecatch: post.eyecatch,
       categories: post.categories,
