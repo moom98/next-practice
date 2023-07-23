@@ -1,7 +1,8 @@
 import React from 'react'
 // import { client } from 'libs/client'
 import { getPostBySlug } from 'libs/api'
-import Container from 'components/layouts/Container'
+import Container from '@/components/layouts/Container'
+import PostHeader from '@/components/elements/PostHeader'
 
 export default function Schedule({
   title,
@@ -12,7 +13,9 @@ export default function Schedule({
 }) {
   return (
     <Container>
-      <h1>{title}</h1>
+      <article>
+        <PostHeader title={title} subTitle="Blog Article" publish={publish} />
+      </article>
     </Container>
   )
 }
