@@ -3,7 +3,10 @@ import React from 'react'
 import { getPostBySlug } from 'libs/api'
 import Container from '@/components/layouts/Container'
 import PostHeader from '@/components/elements/PostHeader'
-import Image from 'next/image'
+import PostBody from '@/components/layouts/PostBody'
+import { TwoColumn } from '@/components/layouts/TwoColumn'
+import ConvertBody from '@/components/features/convert-body'
+import Image from 'next/legacy/image'
 
 export default function Schedule({
   title,
@@ -27,6 +30,15 @@ export default function Schedule({
             priority
           />
         </figure>
+
+        <TwoColumn>
+          <TwoColumn.Main>
+            <PostBody>
+              <ConvertBody contentHTML={content} />
+            </PostBody>
+          </TwoColumn.Main>
+          <TwoColumn.Sidebar></TwoColumn.Sidebar>
+        </TwoColumn>
       </article>
     </Container>
   )

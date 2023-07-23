@@ -4,11 +4,7 @@ import Hero from '@/components/elements/Hero'
 import Container from '@/components/layouts/Container'
 import PostBody from '@/components/layouts/PostBody'
 import Contact from '@/components/elements/Contact'
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/layouts/TwoColumn'
+import { TwoColumn } from '@/components/layouts/TwoColumn'
 import Image from 'next/image'
 import eyecatch from '@/images/about.jpg'
 
