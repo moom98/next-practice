@@ -10,12 +10,12 @@ import PostCategory from '@/components/elements/PostCategory'
 import { extractText } from '@/components/features/extract-text'
 import Meta from '@/components/Meta'
 import Image from 'next/legacy/image'
-import { getPlaiceholder } from 'plaiceholder'
+// import { getPlaiceholder } from 'plaiceholder'
 
 // ローカルの代替アイキャッチ画像
 import { eyecatchlocal } from 'libs/constants'
 
-export default function Schedule({
+export default function Post({
   title,
   publish,
   content,
@@ -43,8 +43,8 @@ export default function Schedule({
             height={eyecatch.height}
             sizes="(min-width: 1152px) 1152px, 100vw"
             priority
-            placeholder="blur"
-            blurDataURL={eyecatch.blurDataURL}
+            // placeholder="blur"
+            // blurDataURL={eyecatch.blurDataURL}
           />
         </figure>
 
@@ -63,15 +63,22 @@ export default function Schedule({
   )
 }
 
-export async function getStaticProps() {
-  const slug = 'micro'
+export async function getStaticPaths() {
+  return {
+    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    fallback: false,
+  }
+}
+
+export async function getStaticProps(context) {
+  const slug = context.params.slug
 
   const post = await getPostBySlug(slug)
   const description = extractText(post.content)
   const eyecatch = post.eyecatch ?? eyecatchlocal
 
-  const { base64 } = await getPlaiceholder(eyecatch.url)
-  eyecatch.blurDataURL = base64
+  // const { base64 } = await getPlaiceholder(eyecatch.url)
+  // eyecatch.blurDataURL = base64
 
   return {
     props: {
@@ -84,30 +91,3 @@ export async function getStaticProps() {
     },
   }
 }
-
-// export async function getStaticProps() {
-//   const resPromise = client.get({
-//     endpoint: 'blogs',
-//     // contentId: 'schedule',
-//   })
-//   // then.catchを使う場合
-//   // resPromise.then((res) => console.log(res)).catch((err) => console.log(err))
-
-//   // try.catchを使う場合
-//   try {
-//     const res = await resPromise
-//     console.log(res)
-//   } catch (err) {
-//     console.log(err)
-//   }
-
-//   console.log('処理1')
-//   setTimeout(() => console.log('処理2'), 1000)
-//   console.log('処理3')
-//   return {
-//     props: {
-//       title: '記事のタイトル',
-//       date: '2020-01-01',
-//     },
-//   }
-// }

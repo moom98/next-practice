@@ -15,7 +15,7 @@ const {
 
 import siteImg from '@/images/ogp.jpg'
 
-export default function meta({
+export default function Meta({
   pageTitle,
   pageDesc,
   pageImg,
