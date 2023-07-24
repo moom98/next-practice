@@ -18,3 +18,17 @@ export async function getPostBySlug(slug) {
     console.log(error)
   }
 }
+
+// すべての記事を取得する
+export async function getAllPosts(limit = 100) {
+  try {
+    const posts = await client.get({
+      endpoint: 'blogs',
+      queries: { fields: 'title,slug', orders: '-publishedAt', limit: limit },
+    })
+    return posts.contents
+  } catch (error) {
+    console.log('~~ getAllPosts ~~')
+    console.log(error)
+  }
+}

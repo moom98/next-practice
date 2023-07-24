@@ -1,6 +1,6 @@
 import React from 'react'
 // import { client } from 'libs/client'
-import { getPostBySlug } from 'libs/api'
+import { getPostBySlug, getAllPosts } from 'libs/api'
 import Container from '@/components/layouts/Container'
 import PostHeader from '@/components/elements/PostHeader'
 import PostBody from '@/components/layouts/PostBody'
@@ -64,8 +64,10 @@ export default function Post({
 }
 
 export async function getStaticPaths() {
+  const allSlugs = await getAllPosts()
+
   return {
-    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false,
   }
 }
