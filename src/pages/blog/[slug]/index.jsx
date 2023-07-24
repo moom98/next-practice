@@ -1,6 +1,6 @@
 import React from 'react'
 // import { client } from 'libs/client'
-import { getPostBySlug, getAllPosts } from 'libs/api'
+import { getPostBySlug, getAllSlugs } from 'libs/api'
 import { prevNextPost } from 'libs/prevNextPost'
 import Container from '@/components/layouts/Container'
 import PostHeader from '@/components/elements/PostHeader'
@@ -89,8 +89,8 @@ export async function getStaticProps({ params }) {
     // const { base64 } = await getPlaiceholder(eyecatch.url)
     // eyecatch.blurDataURL = base64
 
-    const allPosts = await getAllPosts()
-    const [prevPost, nextPost] = prevNextPost(allPosts, slug)
+    const allSlugs = await getAllSlugs()
+    const [prevPost, nextPost] = prevNextPost(allSlugs, slug)
 
     return {
       props: {
@@ -108,10 +108,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPosts()
+  const allSlugs = await getAllSlugs()
 
   return {
-    paths: allPosts.map(({ slug }) => `/blog/${slug}`),
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false,
   }
 }
