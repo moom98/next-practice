@@ -1,6 +1,6 @@
 import React from 'react'
 import ConvertDate from 'components/features/convert-date'
-import styles from '@/styles/elements/PostHeader.module.scss'
+import styles from '@/styles/elements/postHeader.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock as clock } from '@fortawesome/free-solid-svg-icons'
 

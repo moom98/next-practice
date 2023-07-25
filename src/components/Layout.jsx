@@ -1,11 +1,11 @@
-import Header from '@/components/layouts/header'
-import Footer from '@/components/layouts/footer'
+import Header from '@/components/layouts/Header'
+import Footer from '@/components/layouts/Footer'
 
-export default function Base({children}) {
+export default function Base({ children }) {
   return (
     <>
       <Header />
-        <main>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   )
