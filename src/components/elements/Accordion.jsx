@@ -7,7 +7,7 @@ export default function Accordion({ heading, children }) {
   // アコーディオンの開閉ロジック
   const [textIsOpen, setTextIsOpen] = useState(false)
   const toggleText = () => setTextIsOpen((prev) => !prev)
-  const refText = useRef(null)
+  const refText = useRef({ scrollHeight: 0 })
 
   return (
     <div className={textIsOpen ? styles.open : styles.close}>
@@ -21,9 +21,7 @@ export default function Accordion({ heading, children }) {
         className={styles.text}
         ref={refText}
         style={{
-          '--text-height': refText.current
-            ? `${refText.current.scrollHeight}px`
-            : '0px',
+          '--text-height': `${refText.current.scrollHeight}px`,
         }}
       >
         <div className={styles.textInner}>{children}</div>
