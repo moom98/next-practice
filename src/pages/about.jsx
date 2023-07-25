@@ -7,9 +7,16 @@ import Contact from '@/components/elements/Contact'
 import { TwoColumn } from '@/components/layouts/TwoColumn'
 import Accordion from 'components/elements/Accordion'
 import Image from 'next/image'
-import eyecatch from '@/images/about.jpg'
+// import eyecatch from '@/images/about.jpg'
 
 export default function About() {
+  const eyecatch = {
+    src: 'https://images.microcms-assets.io/assets/774898bfcddc4454b13029c1a678617e/7a4984b2f74841e69d3de87ca41a1817/about.jpg',
+    width: 1920,
+    height: 960,
+    blurDataURL: 'daa:image/jpeg;base64',
+  }
+
   return (
     <Container>
       <Meta pageTitle="About" pageDesc="About development activities" />

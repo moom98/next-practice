@@ -8,6 +8,9 @@ const nextConfig = {
     return config
   },
   images: {
+    loader: 'imgix',
+    path: '',
+    domains: ['images.microcms-assets.io'],
     remotePatterns: [
       {
         protocol: 'https',

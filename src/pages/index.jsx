@@ -25,6 +25,9 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
+  const url =
+    'https://images.microcms-assets.io/assets/774898bfcddc4454b13029c1a678617e/7a4984b2f74841e69d3de87ca41a1817/about.jpg'
+
   // topは最新4件のみ取得
   const posts = await getAllPosts(4)
 

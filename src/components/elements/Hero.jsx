@@ -1,9 +1,16 @@
 import React from 'react'
 import styles from '@/styles/elements/hero.module.css'
 import Image from 'next/image'
-import kv from '@/images/cube.jpg'
+// import kv from '@/images/cube.jpg'
 
 export default function Hero({ title, subTitle, imageOn = false }) {
+  const kv = {
+    src: 'https://images.microcms-assets.io/assets/774898bfcddc4454b13029c1a678617e/d881dd005a254dd18f29e3c7ef090ec5/cube.jpg',
+    width: 1500,
+    height: 1300,
+    blurDataURL: 'daa:image/jpeg;base64',
+  }
+
   return (
     <div className={styles.flexContainer}>
       <div className={styles.text}>
