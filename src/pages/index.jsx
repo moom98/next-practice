@@ -4,7 +4,7 @@ import { getAllPosts } from 'libs/api'
 import Hero from '@/components/elements/Hero'
 import Container from '@/components/layouts/Container'
 import Posts from '@/components/elements/Posts'
-import Pagination from 'components/elements/pagination'
+import Pagination from 'components/elements/Pagination'
 import { eyecatchlocal } from 'libs/constants'
 import Post from './blog/[slug]'
 

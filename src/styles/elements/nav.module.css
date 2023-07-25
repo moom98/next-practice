@@ -1,21 +1,103 @@
-.list{
+@media screen and (min-width: 769px) {
+  .button {
+    display: none;
+  }
+
+  .list {
     display: flex;
     gap: 2em;
+  }
 }
 
-@media (hover: hover){
-    .list a:hover{
-        color: var(--accent);
-    }
+@media screen and (max-width: 768px) {
+  .button {
+    position: relative;
+    z-index: 200;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+
+    /* ハンバーガーメニューのアイコン */
+    display: grid;
+    place-items: center;
+  }
+
+  .button::before,
+  .button::after,
+  .button .bar {
+    content: '';
+    display: block;
+    grid-area: 1 / 1;
+    width: 32px;
+    height: 1px;
+    background-color: currentColor;
+    transition: transform 0.4s, color 0.4s ease-in-out;
+  }
+
+  .button::before {
+    transform: translateY(-8px);
+  }
+
+  .button::after {
+    transform: translateY(8px);
+  }
+
+  .close .button {
+    color: var(--gray-75);
+  }
+
+  .open .button {
+    color: var(--white);
+  }
+
+  .open .button::before {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .open .button::after {
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  .open .button .bar {
+    transform: scale(0);
+  }
+
+  .list {
+    /* メニュー（オーバーレイ） */
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    transition: transform 0.4s ease-in-out;
+
+    /* メニュー（オーバーレイの中身） */
+    display: grid;
+    gap: 40px;
+    place-content: center;
+    text-align: center;
+  }
+
+  .open .list {
+    transform: translateX(-100%);
+  }
 }
 
-@media (hover: none){
-    /* Remove the tap highlight color on mobile */
-    .list a {
-        -webkit-tap-highlight-color: transparent;
-    }
+@media (hover: hover) {
+  .list a:hover {
+    color: var(--accent);
+  }
+}
 
-    .list a:active{
-        color: var(--accent);
-    }
+@media (hover: none) {
+  /* Remove the tap highlight color on mobile */
+  .list a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .list a:active {
+    color: var(--accent);
+  }
 }
