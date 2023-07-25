@@ -1,5 +1,4 @@
 import React from 'react'
-import Meta from '@/components/meta'
 import Hero from '@/components/elements/Hero'
 import Container from '@/components/layouts/Container'
 import Posts from '@/components/elements/Posts'
@@ -12,7 +11,7 @@ import { eyecatchlocal } from 'libs/constants'
 export default function Blog({ posts }) {
   return (
     <Container>
-      <Meta pageTitle="Blog" pageDesc="記事一覧" />
+      {/* <Meta pageTitle="Blog" pageDesc="記事一覧" /> */}
       <Hero title="Blog" subTitle="Recent Posts" />
       <Posts posts={posts} />
     </Container>

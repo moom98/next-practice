@@ -53,3 +53,40 @@ export async function getAllPosts(limit = 100) {
     console.log(error)
   }
 }
+
+// カテゴリごとの一覧を取得する
+export async function getAllCategories(limit = 100) {
+  try {
+    const categories = await client.get({
+      endpoint: 'categories',
+      queries: {
+        fields: 'name,id,slug',
+        limit: limit,
+      },
+    })
+    return categories.contents
+  } catch (error) {
+    console.log('~~ getAllCategories ~~')
+    console.log(error)
+  }
+}
+
+// 指定したカテゴリに属する記事一覧を取得する
+export async function getAllPostsByCategory(catID, limit = 100) {
+  try {
+    const posts = await client.get({
+      endpoint: 'blogs',
+      queries: {
+        // microCMSのフィルター機能を使ってカテゴリを指定
+        filters: `categories[contains]${catID}`,
+        fields: 'title,slug,eyecatch',
+        orders: '-publishedAt',
+        limit: limit,
+      },
+    })
+    return posts.contents
+  } catch (error) {
+    console.log('~~ getAllPostsByCategory ~~')
+    console.log(error)
+  }
+}
