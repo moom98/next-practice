@@ -12,11 +12,7 @@ export default function Home({ posts }) {
   return (
     <Container>
       {/* <Meta /> */}
-      <Hero
-        title="BLOG"
-        subTitle="next.js×microCMS×Vercel×Netlifyの練習"
-        imageOn
-      />
+      <Hero title="BLOG" subTitle="next.js×microCMS×Netlifyの練習" imageOn />
 
       <Posts posts={posts} />
       <Pagination nextUrl="/blog" nextText="More Posts" />
